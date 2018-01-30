@@ -8,6 +8,7 @@ import { CocktailsListComponent } from './cocktail-container/cocktails-list/cock
 import { CocktailContainerComponent } from './cocktail-container/cocktail-container.component';
 import { CbPipe } from './cb.pipe';
 import { HeaderComponent } from './header/header.component';
+import { ActiveDirective } from './shared/directives/active.directive';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HeaderComponent } from './header/header.component';
     CocktailsListComponent,
     CocktailContainerComponent,
     CbPipe,
-    HeaderComponent
+    HeaderComponent,
+    ActiveDirective
   ],
   imports: [
     BrowserModule
