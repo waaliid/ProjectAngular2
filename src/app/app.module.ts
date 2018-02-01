@@ -9,7 +9,10 @@ import { CocktailContainerComponent } from './cocktail-container/cocktail-contai
 import { CbPipe } from './cb.pipe';
 import { HeaderComponent } from './header/header.component';
 import { ActiveDirective } from './shared/directives/active.directive';
-
+import { PanierComponent } from './panier/panier.component';
+import { IngredientsListComponent } from './panier/ingredients-list/ingredients-list.component';
+import { AppRouting } from './app.routing';
+import { PanierService } from './shared/services/panier.service'
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { ActiveDirective } from './shared/directives/active.directive';
     CocktailContainerComponent,
     CbPipe,
     HeaderComponent,
-    ActiveDirective
+    ActiveDirective,
+    PanierComponent,
+    IngredientsListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRouting
   ],
-  providers: [],
+  providers: [PanierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

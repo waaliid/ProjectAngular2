@@ -1,0 +1,15 @@
+<h3>Panier </h3>
+<hr>
+<div class="row">
+  <ul class="list-group col-12">
+    <li class="list-group-item"
+    *ngFor="let ingredient of ingredients">
+    {{ ingredient.name }}
+    <span class="badge badge-default badge-pill ml-auto"> {{ ingredient.quantity }} </span>
+    </li>
+  </ul>
+</div>
+<hr>
+<div class="row">
+  <button *ngIf="ingredients" class="btn btn-default btn-success" (click)="viderPanier()">Vider panier</button>
+</div>
