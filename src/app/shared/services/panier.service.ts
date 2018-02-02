@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Ingredient } from "../../ingredient.model";
+import { Ingredient } from '../../shared/models/ingredient.model';
 import { BehaviorSubject } from "rxjs";
 
 @Injectable()
@@ -8,16 +8,16 @@ export class PanierService {
   public panier: BehaviorSubject<Ingredient[]> = new BehaviorSubject<Ingredient[]>(null);
 
 
-  addIngredients(i: Ingredient[]): void{
-    const currentValue = this.panier.value;  
+  addIngredients(i: Ingredient[]): void {
+    const currentValue = this.panier.value;
     if (currentValue && currentValue.length) {
         this.panier.next(currentValue.concat(i));
-    }else{
+    }else {
         this.panier.next(i);
     }
   }
 
-  viderPanier(): void{
+  viderPanier(): void {
     this.panier.next([]);
   }
 

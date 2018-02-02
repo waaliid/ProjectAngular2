@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Ingredient } from '../../ingredient.model';
-import { PanierService } from "../../shared/services/panier.service";
+import { Ingredient } from '../../shared/models/ingredient.model';
+import { PanierService } from '../../shared/services/panier.service';
 import { Subscription } from "rxjs";
 
 
@@ -12,21 +12,21 @@ import { Subscription } from "rxjs";
 export class IngredientsListComponent implements OnInit, OnDestroy {
 
   public ingredients: Ingredient[] = [ new Ingredient('lemon', 2)];
-  private subscribtion: Subscription
+  private subscribtion: Subscription;
 
   constructor(private panierService: PanierService) { }
 
   ngOnInit() {
-    this.subscribtion = this.panierService.panier.subscribe((ingredients: Ingredient[])=>{
+    this.subscribtion = this.panierService.panier.subscribe((ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
-    })
+    });
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subscribtion.unsubscribe();
   }
 
-  viderPanier(): void{
+  viderPanier(): void {
     this.panierService.viderPanier();
   }
 }
