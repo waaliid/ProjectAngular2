@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { CocktailDetailsComponent } from './cocktail-container/cocktail-details/cocktail-details.component';
 import { CocktailsListComponent } from './cocktail-container/cocktails-list/cocktails-list.component';
@@ -14,6 +15,7 @@ import { IngredientsListComponent } from './panier/ingredients-list/ingredients-
 import { AppRouting } from './app.routing';
 import { PanierService } from './shared/services/panier.service';
 import { CocktailEditComponent } from './cocktail-container/cocktail-edit/cocktail-edit.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,15 @@ import { CocktailEditComponent } from './cocktail-container/cocktail-edit/cockta
     ActiveDirective,
     PanierComponent,
     IngredientsListComponent,
-    CocktailEditComponent
+    CocktailEditComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRouting,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [PanierService],
   bootstrap: [AppComponent]

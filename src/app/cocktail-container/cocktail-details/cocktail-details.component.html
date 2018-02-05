@@ -1,33 +1,34 @@
-<div class="row">
-    <img 
-    class="img-fluid" 
-    style="max-height: 150px;" 
-    [src]="cocktail.img" 
-    [alt]="cocktail.name">
-  <h3 class="col-8">{{ cocktail.name }}</h3>
-</div>
-<hr>
-<div class="row">
-  <p class="col-12">{{ cocktail.desc }}</p>
-</div>
-<hr>
-<div class="row">
-  <ul class="list-group col-12">
-    <li 
-    class="list-group-item list-group-item-action"
-    *ngFor="let i of cocktail.Ingredients">
-        {{ i.name }} <span class="badge badge-default badge-pill ml-auto"> {{i.quantity}} </span>
-    </li>
-  </ul>
-</div>
-<hr>
-<div class="row">
-  <button class="btn btn-success" [routerLink]="getUrl()">
-    Editer cockail
-  </button>
-  <button 
-    class="btn btn-secondary ml-auto" (click)="addPanier(cocktail.ingredients)">
-      Ajouter au panier
+<div *ngIf="cocktail" >
+  <div class="row">
+      <img 
+      class="img-fluid" 
+      style="max-height: 150px;" 
+      [src]="cocktail.img" 
+      [alt]="cocktail.name">
+    <h3 class="col-8">{{ cocktail.name }}</h3>
+  </div>
+  <hr>
+  <div class="row">
+    <p class="col-12">{{ cocktail.desc }}</p>
+  </div>
+  <hr>
+  <div class="row">
+    <ul class="list-group col-12">
+      <li 
+      class="list-group-item list-group-item-action"
+      *ngFor="let i of cocktail.Ingredients">
+          {{ i.name }} <span class="badge badge-default badge-pill ml-auto"> {{i.quantity}} </span>
+      </li>
+    </ul>
+  </div>
+  <hr>
+  <div class="row">
+    <button class="btn btn-success" [routerLink]="getUrl()">
+      Editer cockail
     </button>
+    <button 
+      class="btn btn-secondary ml-auto" (click)="addPanier(cocktail.Ingredients)">
+        Ajouter au panier
+      </button>
+  </div>
 </div>
-

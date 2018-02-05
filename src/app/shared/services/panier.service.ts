@@ -9,6 +9,7 @@ export class PanierService {
 
 
   addIngredients(i: Ingredient[]): void {
+    console.log(i);
     const currentValue = this.panier.value;
     if (currentValue && currentValue.length) {
         this.panier.next(currentValue.concat(i));
